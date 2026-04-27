@@ -13,7 +13,7 @@ Suggesting data quality checks and validation strategies
 
 The system uses semantic search to locate relevant context and an agent layer to determine how to respond based on the user’s request.
 
-#Architecture
+Architecture
 
 User Query > Agent Router (Intent Detection)
 
@@ -27,7 +27,7 @@ User Query > Agent Router (Intent Detection)
     ↓
 LLM (Databricks Model Serving) > Final Response
 
-#Project Structure
+Project Structure
 
 notebooks/
 01_ingest_parse_pdf.ipynb 
@@ -40,7 +40,7 @@ notebooks/
 
 05_agent_query_app.ipynb
 
-##How It Works
+How It Works
 1. Document Ingestion
 - Runbook PDFs are parsed into clean text and stored in a structured format.
 2. Chunking Strategy
@@ -64,25 +64,25 @@ The agent uses a tool-based architecture:
 
 Routing logic analyzes the user query and selects the appropriate tool or combination of tools.
 
-##Example Queries
+Example Queries
 
 - `ask_agent("Give me a row count validation query")`
 - `ask_agent("What validations should I run after pipeline load?")`
 - `ask_agent("How do I fix pipeline authentication failure?")`
 
-## Technologies Used
+Technologies Used
 - Databricks (Unity Catalog and Vector Search)
 - PySpark
 - Delta Lake
 - Databricks Model Serving (LLM)
 - Python
 
-## Key Design Decisions
+Key Design Decisions
 - Overlapping chunking improves retrieval quality
 - Managed embeddings simplify implementation
 - Tool-based agent design allows flexible responses
 - Structured prompts align output with user intent
 
-## Conclusion
+Conclusion
 This project demonstrates how RAG and agent-based systems can be applied to real-world data engineering problems. By combining semantic retrieval with intelligent tool selection, the system provides practical, context-aware assistance for troubleshooting, validation, and SQL generation.
 
